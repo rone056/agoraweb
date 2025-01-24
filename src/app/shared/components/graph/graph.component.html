@@ -1,0 +1,39 @@
+<div class="container">
+    <div fxLayout="row" class="drawer" fxLayoutAlign="start">
+        <!-- <div #menuLeft fxFlex.gt-sm="10%" fxHide fxShow.gt-sm >
+            <mat-nav-list class="drawer-menu">
+                <mat-list-item mat-button>
+                    <mat-icon matListIcon aria-hidden="false">dashboard</mat-icon>
+                    <span matLine>Dashboard</span>
+                </mat-list-item>
+                <mat-list-item mat-button (click)="reset()">
+                    <mat-icon matListIcon aria-hidden="false">hub</mat-icon>
+                    <span matLine>Ma carto</span>
+                </mat-list-item>
+            </mat-nav-list>
+        </div> -->
+        <div fxFlex="100%" #drawer class="drawer-boundary" fxLayout="row">            
+            <div #drawerContent class="drawer-content">
+                <div fxLayoutAlign="start center" class="graphPath" fxHide fxShow.gt-sm>
+                    <mat-icon aria-hidden="false" class="rootLink" (click)="focusOnNode('root')">home</mat-icon>
+                    <div fxFlexAlign="center" *ngFor="let domaine of domainePath; let isLast = last" (click)="!isLast && focusOnNode(domaine.id)">
+                        <mat-icon class="linkBloc" aria-hidden="false">navigate_next</mat-icon>
+                        <span class="linkBloc" [ngClass]="{'domaineLink': !isLast}">{{domaine.name}}</span>
+                    </div>
+                </div>
+                <div id="chart"></div>
+                <div class="graphMode">
+                    <button mat-stroked-button (click)="fitView()" class="centerIcon"><mat-icon aria-hidden="false">adjust</mat-icon></button>
+                    <mat-button-toggle-group [(ngModel)]="isEdition" (change)="drawGraphByMode()">
+                        <mat-button-toggle [value]="false" [checked]="isEdition == false">Global</mat-button-toggle>
+                        <mat-button-toggle [value]="true">Edition</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+                <button mat-fab color="primary" class="graphEditButton" aria-label="Edit" (click)="this.editClick()">
+                    <mat-icon [hidden]="displayEditor">edit</mat-icon>
+                    <mat-icon [hidden]="!displayEditor">close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

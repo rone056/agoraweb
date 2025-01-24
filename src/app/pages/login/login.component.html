@@ -1,0 +1,50 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column" class="pageContainer"
+        fxLayoutAlign="center center" fxFlex.gt-sm="30%" ngClass.gt-sm="containerMargin">
+        <h1 class="pageTitle">{{ 'login.titleBis' | translate | uppercase }}</h1>
+        <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="login()" fxLayout="column"
+            fxLayoutAlign="center center" fxLayoutGap="5%">
+            <mat-form-field appearance="outline" class="loginFormField">
+                <mat-icon matPrefix>email</mat-icon>
+                <mat-label>{{ 'field.email' | translate }}</mat-label>
+                <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                    placeholder="Ex. demo@gmail.com">
+                <mat-error *ngIf="hasError('email', 'email') && !hasError('email', 'required')">
+                    {{ 'field.emailError' | translate }}
+                </mat-error>
+                <mat-error *ngIf="hasError('email', 'required')">
+                    {{ 'field.emailRequired' | translate }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="loginFormField">
+                <mat-icon matPrefix>lock</mat-icon>
+                <mat-label>{{ 'field.password' | translate }}</mat-label>
+                <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher"
+                    [type]="this.hidePassword ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="this.hidePassword = !this.hidePassword"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="this.hidePassword">
+                    <mat-icon>{{ this.hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="hasError('password', 'required')">
+                    {{ 'field.passwordRequired' | translate }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions>
+                <button mat-flat-button color="primary" class="loginFormButton">{{
+                    'login.title' | translate | uppercase }}</button>
+            </mat-card-actions>
+
+            <mat-checkbox color="primary" formControlName="remember" class="loginFormField">{{ 'login.remember' | translate }}</mat-checkbox>
+
+            <mat-divider></mat-divider>
+    
+            <div class="noAccount">
+                <span>{{ 'login.noAccount' | translate }}</span>
+                <a mat-button routerLink="/signup" color="primary">{{ 'login.signup' | translate }}</a>
+            </div>
+            
+        </form>
+    </div>
+</div>

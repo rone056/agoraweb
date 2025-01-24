@@ -1,0 +1,11 @@
+<div class="container carto" #cartoBox fxLayout="row">
+    <div class="carto-map" #cartoMap [style.width.%]="widthGraph">
+        <app-graph (displayEditorEvent)="setDisplayEditor($event)"></app-graph>
+    </div>
+    <div class="dragBoundary" [hidden]="!this.displayEditor">
+        <div #dragHandle class="dragHandle" cdkDragBoundary=".dragBoundary" cdkDragLockAxis="x" cdkDrag (cdkDragMoved)="dragMove(dragHandle, $event)"></div>
+    </div>
+    <div class="carto-editor" #cartoEditor [style.width.%]="widthEditor" [hidden]="!this.displayEditor">
+        <app-editor [isDisplayed]="displayEditor"></app-editor>
+    </div>
+</div>

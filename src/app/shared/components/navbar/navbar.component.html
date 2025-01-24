@@ -1,0 +1,79 @@
+<!-- Menu desktop et tablette -->
+<div fxHide fxShow.gt-sm class="navbar">
+    <mat-toolbar [ngStyle.xl]="{'padding-right.%': 20, 'padding-left.%': 20}" color="primary" fxLayout="row"
+        fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" class="mat-elevation-z5">
+        <a mat-button class="appTitle" routerLink="/home" fxFlex="10%" fxFlexAlign="center">{{ 'title' | translate
+            }}</a>
+        <div fxFlex="50%" fxFlexAlign="center">
+            <a mat-button routerLink="/features">{{ 'navbar.features' | translate }}</a>
+            <a mat-button routerLink="/about">{{ 'navbar.about' | translate }}</a>
+            <a mat-button routerLink="/contact">{{ 'navbar.contact' | translate }}</a>
+        </div>
+        <div fxFlex="40%" fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="end" fxFlexAlign="center">
+            <button mat-icon-button aria-label="Icone changement de langue" fxFlex="10%"
+                fxFlexAlign="center" matTooltip="{{ 'navbar.languageTooltip' | translate }}">
+                <mat-icon aria-hidden="false" [matMenuTriggerFor]="languageList">language</mat-icon>
+            </button>
+            <mat-menu #languageList="matMenu">
+                <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+                    {{ language.label | uppercase }}
+                </button>
+            </mat-menu>
+            <a mat-button routerLink="/login" fxFlex="25%" fxFlexAlign="center">{{ 'login.title' | translate }}</a>
+            <button mat-flat-button routerLink="/signup" fxFlex="40%" fxFlexAlign="center">{{
+                'signup.title' | translate }}</button>
+        </div>
+    </mat-toolbar>
+</div>
+
+<!-- Menu smartphone -->
+<div fxShow fxHide.gt-sm>
+    <mat-toolbar class="mobileToolbar mat-elevation-z5" color="primary" fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%"
+        fxLayoutAlign="center center">
+        <span class="appTitle" routerLink="/home" fxFlex="80%" fxLayoutAlign="start">{{ 'title' | translate }}</span>
+        <mat-icon fxFlex="20%" fxLayoutAlign="end" (click)="setMenuVisibility()">{{isMobileMenuOpen ? 'close' :
+            'menu'}}</mat-icon>
+    </mat-toolbar>
+
+    <div [hidden]="!this.isMobileMenuOpen" class="mobileMenu" color="primary" fxLayout="column" fxLayoutAlign="start center"
+        fxLayoutGap="5%">
+        <div class="scrollFlex">
+            <!-- Language selector -->
+            <div class="mobileLanguageContainer">
+                <a mat-stroked-button class="languageButton capitalize"
+                    (click)="this.isMobileLanguageMenuOpen = !this.isMobileLanguageMenuOpen">
+                    <mat-icon aria-hidden="false" matPrefix class="languageIcon">language</mat-icon>
+                    <span class="languageLabel">{{ selectedLanguage.label }}</span>
+                </a>
+                <mat-list [hidden]="!this.isMobileLanguageMenuOpen" role="list" class="mobileLanguageList">
+                    <mat-list-item *ngFor="let language of languages" (click)="setLanguage(language)"
+                        class="mobileLanguage capitalize">
+                        {{ language.label }}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+            <!-- General link -->
+            <div [hidden]="this.isMobileLanguageMenuOpen" class="mobileLinkContainer">
+                <a mat-button class="mobileLink capitalize" routerLink="/features" (click)="setMenuVisibility()">{{
+                    'navbar.features' | translate }}</a>
+                <mat-divider></mat-divider>
+                <a mat-button class="mobileLink capitalize" routerLink="/about" (click)="setMenuVisibility()">{{
+                    'navbar.about' | translate }}</a>
+                <mat-divider></mat-divider>
+                <a mat-button class="mobileLink capitalize" routerLink="/contact" (click)="setMenuVisibility()">{{
+                    'navbar.contact' | translate }}</a>
+            </div>
+
+            <!-- Authentication link -->
+            <div [hidden]="this.isMobileLanguageMenuOpen" class="mobileAuthenticationContainer">
+                <a mat-button routerLink="/login" fxFlexAlign="center" class="mobileLink capitalize"
+                    (click)="setMenuVisibility()">{{ 'login.title' | translate }}</a>
+                <mat-divider></mat-divider>
+                <button mat-flat-button color="primary" routerLink="/signup" fxFlexAlign="center"
+                    class="mobileLink capitalize" (click)="setMenuVisibility()">{{ 'signup.title' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+</div>

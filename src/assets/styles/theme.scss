@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* ======== Angular material custom themes ======== */ 
+// Main colors, most widely used accross the screens and components
+$app-primary: mat-palette($mat-indigo, 500, 300, 800);
+// Secondary colors. Used for floating actions buttons and interactive elements
+$app-accent: mat-palette($mat-teal, A200, A100, A400);
+// Colors to convey error state
+$app-warn: mat-palette($mat-red, 900, 600, A700);
+// Used for text and icons
+//$my-custom-foreground: mat-palette($mat-white);
+// Used for element background
+
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($app-theme);
+
+// Export theme colors
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);

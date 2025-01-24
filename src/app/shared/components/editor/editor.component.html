@@ -1,0 +1,35 @@
+<mat-tab-group #tabGroup animationDuration="400ms" mat-stretch-tabs [selectedIndex]="0" class="editorTabs" color="primary">
+  <mat-tab label="Général">
+    <form class="editorForm" [formGroup]="editorForm">
+      <mat-form-field appearance="fill" class="titleField">
+        <mat-label>Titre</mat-label>
+        <input type="text" matInput formControlName="titre" placeholder="Titre" value="{{ this.domaine?.name}}">
+      </mat-form-field>
+      <mat-form-field class="tagsField" appearance="fill">
+        <mat-label>Tags</mat-label>
+        <mat-chip-list #chipList aria-label="Tag selection">
+          <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
+            {{tag}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="New tag..." #tagInput formControlName="tags" [matAutocomplete]="auto"
+            [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedTag($event)">
+          <mat-option *ngFor="let tag of filteredTags" [value]="tag">
+            {{tag}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <quill-editor #notes formControlName="notes"></quill-editor>
+    </form>
+  </mat-tab>
+  <mat-tab label="Personnalisation">
+    <mat-grid-list cols="4" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let color of colorList" [style.backgroundColor]="color" (click)="updateNodeColor(color)"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>

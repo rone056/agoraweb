@@ -1,0 +1,28 @@
+@import "variables.scss";
+
+.pageContainer{
+    background-color: $backgroundLight;
+    padding: $smallPadding;
+}
+.containerMargin{
+    margin-top : $smallMargin;
+}
+.pageTitle{
+    font-weight: bold;
+}
+.loginForm{
+    padding: $mediumPadding;
+}
+mat-card-actions, mat-divider, .loginFormButton, .loginFormField, .loginForm, .pageContainer{
+    width: 100%;    
+}
+.loginFormButton{
+    padding: $smallPadding;
+}
+mat-divider {
+    border-top-color: $dividerColor;
+}
+
+.noAccount{
+    text-align: center;
+}

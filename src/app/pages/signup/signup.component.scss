@@ -1,0 +1,32 @@
+@import "variables.scss";
+
+.pageContainer{
+    background-color: white;
+    padding: $smallPadding;
+}
+.containerMargin{
+    margin-top : $smallMargin;
+}
+.pageTitle{
+    font-weight: bold;
+}
+.signupForm{
+    padding: $mediumPadding;
+}
+.signupFormField{
+    overflow-wrap: break-word;
+}
+mat-card-actions, mat-divider, .signupFormButton, .signupForm, .signupFormField, .pageContainer{
+    width: 100%;    
+}
+.signupFormButton{
+    padding: $smallPadding;
+}
+
+mat-divider {
+    border-top-color: gray;
+}
+
+.alreadyAnAccount{
+    text-align: center;
+}

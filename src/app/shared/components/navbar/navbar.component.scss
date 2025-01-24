@@ -1,0 +1,79 @@
+.navbar{
+    height:100%;
+}
+.mat-button{
+    color: white;
+}
+.spacer{
+    flex: 1 1 auto;
+}
+.appTitle{
+    font-size: xx-large;
+}
+.scrollFlex{
+    overflow-y:auto; 
+    width:100%;
+}
+mat-toolbar {
+    min-height: 100%;
+    max-height:100%;
+}
+.mobileToolbar{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.mobileMenu{
+    z-index: 1000;
+    background-color: whitesmoke;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+
+.mobileLanguageContainer{
+    width: 90%;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.mobileLanguage{
+    text-align: start;
+    width: 100%;
+    font-size: large;
+    color: black;
+}
+.languageButton{
+    text-align: start;
+    width: 100%;
+    font-size: large;
+    color: black;
+}
+.languageLabel{
+    margin-left: 2%;
+}
+.mobileLanguageList{
+    width: 100%;
+}
+
+
+.mobileLinkContainer{
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.mobileLink{
+    background-color: white;
+    text-align: start;
+    width: 100%;
+    font-size: large;
+    color: black;
+}
+
+
+.mobileAuthenticationContainer{
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 12%;
+}

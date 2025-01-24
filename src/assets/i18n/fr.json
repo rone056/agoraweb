@@ -1,0 +1,34 @@
+{
+  "title": "Agora",
+  "navbar": {
+    "features": "Fonctionnalités",
+    "about": "A propos",
+    "contact": "Contact",
+    "language": "Langage",
+    "languageTooltip": "Changer le langage"
+  },
+  "welcomeMessage": "Bienvenu {{ firstName }}!",
+  "login": {
+    "title": "Connexion",
+    "titleBis": "Se connecter",
+    "noAccount": "Pas encore de compte ?",
+    "forgotPassword": "Mot de passe oublié ? <b>Cliquez ici</b>",
+    "remember": "Se souvenir de moi",
+    "signup": "Inscrivez-vous"
+  },
+  "signup": {
+    "title": "S'inscrire",
+    "titleBis": "Créer mon compte",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "account":"Vous avez déjà un compte ?",
+    "terms": "J'accepte les Conditions d'utilisation ainsi que la Politique de confidentialité d'Agora"
+  },
+  "field": {
+    "email": "E-mail",
+    "emailError": "Veuillez entrer une adresse email valide",
+    "emailRequired": "Veuillez saisir votre adresse email",
+    "password": "Mot de passe",
+    "passwordRequired": "Veuillez saisir votre mot de passe"
+  }
+}
